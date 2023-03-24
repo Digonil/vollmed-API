@@ -23,6 +23,8 @@ public class MedicoController {
         System.out.println(dados);
         var medico = new Medico(dados);
         repository.save(medico);
+        //Cria uma uri que vai no header da requisição indicando o recurso cadastrado
+        //o método created retorna o código 201.
         var uri = uriBuilder.path("medicos/{id").buildAndExpand(medico.getId()).toUri();
         return ResponseEntity.created(uri).body(new DadosDetalhamentoMedico(medico));
     }
@@ -48,6 +50,14 @@ public class MedicoController {
         var medico = repository.getReferenceById(id);
         medico.excluir();
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DadosDetalhamentoMedico> detalhar(@PathVariable Long id ){
+        var medicoBanco = repository.getReferenceById(id);
+        DadosDetalhamentoMedico medico = new DadosDetalhamentoMedico(medicoBanco);
+        //método ok retorna 200
+        return ResponseEntity.ok().body(medico);
     }
 
 
