@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class TratadordeErros {
 
+    //sempre adicionar no properties o atributo para omitir o stacktrace do body da requisição
     //Por padrão, os erros tratados pelo spring volta o erro 500.
     //Tratamos para retornar o código do erro condizente com o tipo de exceção.
     @ExceptionHandler(EntityNotFoundException.class)
