@@ -2,9 +2,9 @@ package med.voll.api.domain.consulta;
 
 import jakarta.validation.constraints.NotNull;
 
-public record DadosCancelamento(
+public record DadosCancelamentoConsulta(
         Consulta consulta,
         @NotNull
-        MotivoCancelamento cancelamento
+        MotivoCancelamento motivoCancelamento
 ) {
 }

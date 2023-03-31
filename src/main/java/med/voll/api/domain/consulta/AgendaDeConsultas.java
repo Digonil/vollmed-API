@@ -33,7 +33,7 @@ public class AgendaDeConsultas {
         //Quando for manipular o objeto: findById.....  *sempre lembrar de usar o .get() para receber o objeto.
         var paciente = pacienteRepository.getReferenceById(dados.idPaciente());
         var medico = escolherMedico(dados);
-        var consulta = new Consulta(null, medico, paciente, dados.data());
+        var consulta = new Consulta(null, medico, paciente, dados.data(),null);
         consultaRepository.save(consulta);
     }
 
