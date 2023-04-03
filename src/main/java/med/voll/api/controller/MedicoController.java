@@ -25,7 +25,7 @@ public class MedicoController {
         repository.save(medico);
         //Cria uma uri que vai no header da requisição indicando o recurso cadastrado
         //o método created retorna o código 201.
-        var uri = uriBuilder.path("medicos/{id").buildAndExpand(medico.getId()).toUri();
+        var uri = uriBuilder.path("medicos/{id}").buildAndExpand(medico.getId()).toUri();
         return ResponseEntity.created(uri).body(new DadosDetalhamentoMedico(medico));
     }
 
