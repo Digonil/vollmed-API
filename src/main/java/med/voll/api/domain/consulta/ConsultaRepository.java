@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDateTime;
 
 public interface ConsultaRepository extends JpaRepository<Consulta, Long> {
-    Boolean existsByMedicoIdAndDataAAndMotivoCancelamentoIsNull(Long idMedico, LocalDateTime data);
+    Boolean existsByMedicoIdAndDataAndMotivoCancelamentoIsNull(Long idMedico, LocalDateTime data);
 
     Boolean findAtivoById(Long idPaciente);
 
